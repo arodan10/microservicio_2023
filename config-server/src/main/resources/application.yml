@@ -7,10 +7,10 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/noetipo/microservicios_2023_1.git
+          uri: https://github.com/arodan10/microservicio_2023.git
           search-paths: config-data
-          username: noetipo
-          password: Tipo47259697
+          username: arodan10
+          password: 17537
           default-label: main
   security:
     user:

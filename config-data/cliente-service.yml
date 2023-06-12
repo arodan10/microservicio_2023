@@ -13,7 +13,7 @@ spring:
     generate-ddl: true
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/cliente
+    url: jdbc:mysql://localhost:3308/cliente
     username: root
     password:
 
