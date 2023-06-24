@@ -6,7 +6,6 @@ import com.example.venta.entity.Venta;
 import com.example.venta.entity.VentaDetalle;
 import com.example.venta.feign.ClienteFeign;
 import com.example.venta.feign.ProductoFeign;
-import com.example.venta.repository.DetalleRepository;
 import com.example.venta.repository.VentaRepository;
 import com.example.venta.service.VentaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +19,6 @@ import java.util.stream.Collectors;
 public class VentaServiceImpl implements VentaService {
     @Autowired
     private VentaRepository ventaRepository;
-
-    @Autowired
-    private DetalleRepository detalleRepository;
 
     @Autowired
     private ClienteFeign clienteFeign;
@@ -42,25 +38,7 @@ public class VentaServiceImpl implements VentaService {
 
     @Override
     public Venta actualizar(Venta venta) {
-
-        // Guardar la venta principal
-        Venta ventaGuardada = ventaRepository.save(venta);
-
-        // Establecer la referencia de venta en cada detalle
-        if (ventaGuardada.getDetalle() != null) {
-            for (VentaDetalle detalle : ventaGuardada.getDetalle()) {
-                detalle.setVenta(ventaGuardada);
-            }
-        }
-
-        // Guardar los detalles de venta
-        if (ventaGuardada.getDetalle() != null) {
-            for (VentaDetalle detalle : ventaGuardada.getDetalle()) {
-                detalleRepository.save(detalle);
-            }
-        }
-
-        return ventaGuardada;
+        return ventaRepository.save(venta);
     }
 
     @Override
