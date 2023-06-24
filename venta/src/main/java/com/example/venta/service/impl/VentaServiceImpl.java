@@ -48,7 +48,7 @@ public class VentaServiceImpl implements VentaService {
         Cliente cliente = clienteFeign.listById(venta.getClienteId()).getBody();
         List<VentaDetalle> ventaDetalles = venta.getDetalle().stream().map(ventaDetalle -> {
             System.out.println(ventaDetalle.toString());
-           System.out.println("Antes de la peticion");
+            System.out.println("Antes de la peticion");
             Producto producto = productoFeign.listById(ventaDetalle.getProductoId()).getBody();
             System.out.println("Despues de la peticion");
             System.out.println(producto.toString());
