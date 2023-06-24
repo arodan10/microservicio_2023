@@ -7,8 +7,8 @@ spring:
     generate-ddl: true
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3308/auth
-    username: root
+    url: jdbc:mys
+    username: rooql://localhost:3308/autht
     password:
 eureka:
   client:

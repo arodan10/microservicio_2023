@@ -20,4 +20,12 @@ public class VentaDetalle {
         this.cantidad = (double) 0;
         this.precio = (double) 0;
     }
+
+    @ManyToOne
+    @JoinColumn(name = "venta_id")
+    private Venta venta;
+
+    public void setVenta(Venta venta) {
+        this.venta = venta;
+    }
 }
