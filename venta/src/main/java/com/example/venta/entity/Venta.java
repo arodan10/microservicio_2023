@@ -20,9 +20,10 @@ public class Venta {
     private Integer clienteId;
 
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "venta_id")
     private List<VentaDetalle> detalle;
+
     @Transient
     private Cliente cliente;
 

@@ -58,7 +58,7 @@ public class VentaController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateVenta(@PathVariable("id") int id, @RequestBody Venta venta) {
+    public ResponseEntity<Venta> updateVenta(@PathVariable(required = true) int id, @RequestBody Venta venta) {
         log.info("Updating Invoice with id {}", id);
 
         venta.setId(id);
@@ -72,7 +72,7 @@ public class VentaController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Venta> deleteVenta(@PathVariable("id") int id) {
+    public ResponseEntity<Venta> deleteVenta(@PathVariable(required = true) int id) {
         log.info("Fetching & Deleting Invoice with id {}", id);
 
         Venta venta = ventaService.listarPorId(id);

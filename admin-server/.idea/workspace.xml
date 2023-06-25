@@ -8,13 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../venta/src/main/java/com/example/venta/controller/VentaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../venta/src/main/java/com/example/venta/controller/VentaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../venta/src/main/java/com/example/venta/entity/Venta.java" beforeDir="false" afterPath="$PROJECT_DIR$/../venta/src/main/java/com/example/venta/entity/Venta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../venta/src/main/java/com/example/venta/entity/VentaDetalle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../venta/src/main/java/com/example/venta/entity/VentaDetalle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../venta/src/main/java/com/example/venta/feign/ClienteFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/../venta/src/main/java/com/example/venta/feign/ClienteFeign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../venta/src/main/java/com/example/venta/feign/ProductoFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/../venta/src/main/java/com/example/venta/feign/ProductoFeign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../venta/src/main/java/com/example/venta/repository/VentaDetalleRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../venta/src/main/java/com/example/venta/repository/VentaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../venta/src/main/java/com/example/venta/repository/VentaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../venta/src/main/java/com/example/venta/service/VentaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../venta/src/main/java/com/example/venta/service/VentaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../venta/src/main/java/com/example/venta/service/impl/VentaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../venta/src/main/java/com/example/venta/service/impl/VentaServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +59,7 @@
       <workItem from="1687611865534" duration="3934000" />
       <workItem from="1687666029406" duration="269000" />
       <workItem from="1687668817375" duration="1402000" />
-      <workItem from="1687708385345" duration="1188000" />
+      <workItem from="1687708385345" duration="2398000" />
     </task>
     <servers />
   </component>
