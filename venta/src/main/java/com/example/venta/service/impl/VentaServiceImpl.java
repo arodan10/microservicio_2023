@@ -8,17 +8,21 @@ import com.example.venta.feign.ClienteFeign;
 import com.example.venta.feign.ProductoFeign;
 import com.example.venta.repository.VentaRepository;
 import com.example.venta.service.VentaService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 public class VentaServiceImpl implements VentaService {
     @Autowired
     private VentaRepository ventaRepository;
+
+    @Autowired
+    private VentaRepository ventaDetalleRepository;
 
     @Autowired
     private ClienteFeign clienteFeign;
@@ -28,42 +32,63 @@ public class VentaServiceImpl implements VentaService {
 
     @Override
     public List<Venta> listar() {
-        return ventaRepository.findAll();
+        return  ventaRepository.findAll();
     }
+
 
     @Override
     public Venta guardar(Venta venta) {
-        return ventaRepository.save(venta);
+        Venta ventaDB = ventaRepository.findByNumero ( venta.getNumero () );
+        if (ventaDB !=null){
+            return  ventaDB;
+        }
+        ventaDB = ventaRepository.save(venta);
+        ventaDB.getDetalle().forEach( ventaDetalle -> {
+            productoFeign.updateStockProduct( ventaDetalle.getProductoId(), ventaDetalle.getCantidad() * -1);
+        });
+
+        return ventaDB;
     }
 
     @Override
     public Venta actualizar(Venta venta) {
-        return ventaRepository.save(venta);
+        Venta ventaDB = listarPorId(venta.getId());
+        if (ventaDB == null){
+            return  null;
+        }
+        ventaDB.setClienteId(venta.getClienteId());
+        ventaDB.setDescripcion(venta.getDescripcion());
+        ventaDB.setNumero(venta.getNumero());
+        ventaDB.getDetalle().clear();
+        ventaDB.setDetalle(venta.getDetalle());
+        return ventaRepository.save(ventaDB);
     }
 
     @Override
-    public Optional<Venta> listarPorId(Integer id) {
-        Venta venta = ventaRepository.findById(id).get();
+    public Venta listarPorId(Integer id) {
 
-        Cliente cliente = clienteFeign.listById(venta.getClienteId()).getBody();
-        List<VentaDetalle> ventaDetalles = venta.getDetalle().stream().map(ventaDetalle -> {
-            System.out.println(ventaDetalle.toString());
-            System.out.println("Antes de la peticion");
-            Producto producto = productoFeign.listById(ventaDetalle.getProductoId()).getBody();
-            System.out.println("Despues de la peticion");
-            System.out.println(producto.toString());
-            System.out.println(producto.getNombre());
-            ventaDetalle.setProducto(producto);
-            return ventaDetalle;
-        }).collect(Collectors.toList());
-        venta.setDetalle(ventaDetalles);
-
-        venta.setCliente(cliente);
-        return Optional.of(venta);
+        Venta venta= ventaRepository.findById(id).orElse(null);
+        if (null != venta ){
+            Cliente cliente = clienteFeign.getCliente(venta.getClienteId()).getBody();
+            venta.setCliente(cliente);
+            List<VentaDetalle> listDetalle=venta.getDetalle().stream().map(ventaDetalle -> {
+                Producto producto = productoFeign.getProducto(ventaDetalle.getProductoId()).getBody();
+                ventaDetalle.setProducto(producto);
+                return ventaDetalle;
+            }).collect(Collectors.toList());
+            venta.setDetalle(listDetalle);
+        }
+        return venta ;
     }
 
     @Override
-    public void eliminarPorId(Integer id) {
-        ventaRepository.deleteById(id);
+    public Venta eliminar(Venta venta) {
+        Venta ventaDB = listarPorId(venta.getId());
+        if (ventaDB == null){
+            return  null;
+        }
+        return ventaRepository.save(ventaDB);
     }
+
+
 }
