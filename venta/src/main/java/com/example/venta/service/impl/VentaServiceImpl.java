@@ -42,6 +42,7 @@ public class VentaServiceImpl implements VentaService {
         if (ventaDB !=null){
             return  ventaDB;
         }
+        venta.setState("CREATED");
         ventaDB = ventaRepository.save(venta);
         ventaDB.getDetalle().forEach( ventaDetalle -> {
             productoFeign.updateStockProduct( ventaDetalle.getProductoId(), ventaDetalle.getCantidad() * -1);
@@ -87,6 +88,7 @@ public class VentaServiceImpl implements VentaService {
         if (ventaDB == null){
             return  null;
         }
+        ventaDB.setState("DELETED");
         return ventaRepository.save(ventaDB);
     }
 

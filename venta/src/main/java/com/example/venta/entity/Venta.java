@@ -17,6 +17,7 @@ public class Venta {
     private String serie;
     private String numero;
     private String descripcion;
+    private String state;
     private Integer clienteId;
 
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
