@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b3da6a6b-3aaf-4b42-8ab0-5aba651586c5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../config-data/catalogo-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../config-data/catalogo-service.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cliente/src/main/java/com/example/cliente/service/serviceImpl/ClienteServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../config-data/gateway-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../config-data/gateway-service.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gateway-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../gateway-server/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +62,9 @@
       <workItem from="1687668817375" duration="1402000" />
       <workItem from="1687708385345" duration="2604000" />
       <workItem from="1687748344103" duration="1030000" />
-      <workItem from="1687752274393" duration="578000" />
+      <workItem from="1687752274393" duration="1215000" />
+      <workItem from="1687784516609" duration="3260000" />
+      <workItem from="1687797144592" duration="216000" />
     </task>
     <servers />
   </component>
