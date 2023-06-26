@@ -22,9 +22,6 @@ public class VentaServiceImpl implements VentaService {
     private VentaRepository ventaRepository;
 
     @Autowired
-    private VentaRepository ventaDetalleRepository;
-
-    @Autowired
     private ClienteFeign clienteFeign;
 
     @Autowired
